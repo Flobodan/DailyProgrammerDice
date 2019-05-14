@@ -8,15 +8,19 @@ class cube {
 
         System.out.println("Bitte geben sie die Anzahl der Wuerfel gefolgt von d und danach die Anzahl der Seiten ein! (z.b. 3d5)");
         Scanner in = new Scanner(System.in);
-
-        UserRoll = in.nextLine();
-        String[] input = UserRoll.split("d"); 
-        String NumberofDice = input[0];
-        String SizeofDice = input[1];
         
-        int dicecounter = Integer.parseInt(NumberofDice);
-        int dicesize = Integer.parseInt(SizeofDice);
+        //User input 
+        UserRoll = in.nextLine();
+        
+        //String split bei dem Buchstaben "d"
+        String[] input = UserRoll.split("d"); 
+        
+        //umwandlung der Strings in integers
+        int dicecounter = Integer.parseInt(input[0]);
+        int dicesize = Integer.parseInt(input[1]);
 
+        //generiert das Ergebnis anhand der vom user eingebenen Würfelzahl und Größe
+        //anzahl der wiederholungen basierend auf der Anzahl der Würfel
         for (int counter=1; counter < dicecounter+1; counter++){
             int diceRoll = ThreadLocalRandom.current().nextInt(1, dicesize + 1);
             result = result + diceRoll;
